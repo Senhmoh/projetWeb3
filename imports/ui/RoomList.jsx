@@ -9,40 +9,39 @@ export const RoomList = () => {
   const rooms = useFind(() => RoomCollection.find({}), []);
 
   if (listLoading()) return "Loading...";
-  return (
-    <div>
-      <button
-        onClick={() => {
-          Meteor.call("createRoom");
-        }}
-      >
-        {" "}
-        Create Room{" "}
-      </button>
-      <ul>
-        {rooms.map(({ _id, capacity, winner }) => (
-          <li key={_id}>
-            Room {_id} <br />
-            {winner ? `Winner:${winner}` : ""}
-            <br />
-            <button
-              disabled={capacity <= 0}
+return (
+  <div className="room-list">
+    <h1>Bienvenue sur Tic-Tac-Doe</h1>
+    <button
+      onClick={() => {
+        Meteor.call("createRoom");
+      }}
+    >
+      Créer une salle
+    </button>
+    <ul>
+      {rooms.map(({ _id, capacity, winner }) => (
+        <li key={_id}>
+          Salle {_id} <br />
+          {winner ? `Gagnant:${winner}` : ""}
+          <br />
+          <button
+              disabled={winner != null}
               onClick={() => {
-                Meteor.call(
-                  "joinRoom",
-                  { roomId: _id },
-                  (err, { room, color }) => {
-                    navigate(`/game/${room._id}`, { state: { color } });
-                  }
-                );
-              }}
-            >
-              {" "}
-              Join Room{" "}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+              Meteor.call(
+                "joinRoom",
+                { roomId: _id },
+                (err, { room, color }) => {
+                  navigate(`/game/${room._id}`, { state: { color } });
+                }
+              );
+            }}
+          >
+            Rejoindre la salle
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 };

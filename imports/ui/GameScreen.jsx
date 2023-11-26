@@ -1,9 +1,9 @@
-import "./game.css";
 import React, { useEffect } from "react";
 import { useLocation, useParams } from "react-router";
 import { useTracker } from "meteor/react-meteor-data";
 import { RoomCollection } from "../api/rooms";
 import { useNavigate } from "react-router-dom";
+import "./game.css";  
 
 const Slot = ({ id, gameState, color, roomId }) => {
   return (
@@ -65,6 +65,7 @@ export const GameScreen = () => {
 
   return (
     <div className="game">
+      <h1>Let's go</h1>
       <div className="line">
         <Slot id={1} gameState={room.gameState} color={color} roomId={id} />
         <Slot id={2} gameState={room.gameState} color={color} roomId={id} />
