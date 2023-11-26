@@ -16,7 +16,7 @@ const Slot = ({ id, gameState, color, roomId }) => {
           (err) => {
             if (err && err.error === "invalid-play") {
               alert(
-                "This move is invalid. You might need to wait for your turn!"
+                "Ce mouvement est interdit ! Vous devez attendre votre tour !"
               );
             } else if (err) {
               alert(err.message);
