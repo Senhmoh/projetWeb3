@@ -22,7 +22,7 @@ body {
   color: #333;
 }
 
-.room-list button {
+.create-room-btn, .join-room-btn {
   background-color: #4CAF50;
   color: white;
   padding: 10px 20px;
@@ -33,16 +33,16 @@ body {
   transition: background-color 0.3s;
 }
 
-.room-list button:hover {
+.create-room-btn:hover, .join-room-btn:hover {
   background-color: #45a049;
 }
 
-.room-list ul {
+.room-list-ul {
   list-style: none;
   padding: 0;
 }
 
-.room-list li {
+.room-list-item {
   margin-bottom: 10px;
   padding: 10px;
   background: #e9e9e9;
@@ -75,4 +75,37 @@ body {
 
 .slot:hover {
   background-color: #f0f0f0;
+}
+
+/* Styles pour la modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  text-align: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
 }
